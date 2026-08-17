@@ -1,3 +1,207 @@
+# Git Ignore Reference
+
+This repository uses a `.gitignore` file to prevent temporary files, secrets, build artifacts, and other non-source-controlled files from being committed to Git.
+
+## Purpose
+
+The `.gitignore` file helps:
+
+- Protect sensitive information from being committed
+- Reduce repository size
+- Eliminate unnecessary files from source control
+- Prevent local development artifacts from being pushed
+
+---
+
+## Commonly Ignored Files
+
+### Environment Variables and Secrets
+
+```gitignore
+.env
+.env.*
+*.*em**.key
+*.*fx
+credentials.json
+```
+
+### Pytho*
+
+```gitignore
+__py*ache__/
+*.py*
+*.pyo
+*.p*d*.venv/
+venv/
+``*
+
+### Visual Studio Code
+
+```git*gnore*.vscode/
+```
+
+### Jet*rains IDEs
+
+```gitignore
+.idea/
+*``
+
+### Logs
+
+```gitignore
+*.*og*logs/
+```
+
+### Build*Artifacts
+
+```gitignore
+build*
+dist/
+target/
+``*
+
+###*Node.js
+
+```gitignore
+node_modules*
+``*
+
+### Terraform
+
+```git*gnore
+*terraform/
+*.tfstate
+*.tfstate.*
+`*`
+
+---
+
+## Viewing Ignored Files
+
+*how ignored files:
+
+```bash**it status --ignored
+```
+
+Check*whether a file is ignored:
+
+```bas*
+git*check-ignore*-v <filename>
+```
+
+Example:
+
+```ba*h
+git check*ignore -v .env
+```
+
+---
+
+*# Best Practices
+
+### Never*Commit*Secrets
+
+Do not commit:
+
+- Passwor*s
+- API Keys
+- Connection*Strings
+* Certificates
+- Service*Account Keys
+
+### Use Environment *iles
+
+Store configuration in:
+
+```*ext
+.env
+.env*local
+.env.production
+```
+
+and*add them*to `.gitignore*.
+
+### Commit Examples Instead
+
+Us* template files:
+
+```text
+.env.exa*ple
+config.example.json
+```
+
+inste*d of*actual configuration files.
+
+---
+
+*# Updating Git Ignore
+
+If a*file was committed before being ad*ed to `.gitignore`, Git will conti*ue tracking it.
+
+Remove it from tr*cking:
+
+```bash
+git rm*--cached*<filename>
+```
+
+Example:
+
+```bash
+*it rm --cached .env
+```
+
+Commit*the*change:
+
+```bash
+git commit*-* "Remove tracked secret file"
+```
+*---
+
+## Example .gitignore
+
+```git*gnore
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Environment*Variables
+.env*.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Build*build/
+dist/
+
+# Database
+*.db**.sqlite3
+
+# Node.js
+node_modules*
+
+# Terraform
+.terraform/
+*.tf*tate
+*.tfstate.*
+```
+
+---
+
+## Related Files
+
+- README.md
+- SECURITY.md
+- CONTRIBUTING.md
+- LICENSE
+- CODE_OF_CONDUCT.md
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
